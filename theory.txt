@@ -1,0 +1,64 @@
+1. Plot distribution of numerical features using histograms.
+ - To plot the distribution of numerical features using histograms, you divide the data into intervals (bins) and count the frequency of data points in each bin.
+ - bins- number of intervals
+ - KDE (Kernel Density Estimate): Adds a smooth line showing the shape of the distribution.
+ - Bin Selection: If the distribution looks too "jagged," increase the bin size; if it looks like a single block, decrease it.
+ - Normalization: Use stat="density" in Seaborn if you want the Y-axis to represent probability rather than raw counts.
+ - Visual Clarity: Always include edgecolor='black' or similar to distinguish between the bars.
+ - The fetch_california_housing function is defined in the Scikit-learn (sklearn) library within the datasets module.
+ - Built-in Scikit-learn Datasets: Use specific functions like load_iris(), load_diabetes(), or fetch_california_housing().
+ - External Datasets (Netflix, etc.): Use general file-reading functions like pd.read_csv() or pd.read_excel().
+2. Analyze categorical features using count plots.
+ -  This automatically tallies the frequency of each category and represents them as vertical or horizontal bars.
+ - When to use Count Plots vs. Others
+    Count Plot: Use when the primary goal is to count occurrences of discrete groups.
+    Bar Plot: Use to display summary statistics (like the mean of a numerical value) across categories.
+    Pie Chart: Use for seeing the proportion relative to the whole, though count plots are often more precise for direct comparisons.
+3. Use box plots to identify outliers.
+ - An outlier is a data point that differs significantly from other observations in a dataset, while a box plot (also called a box-and-whisker plot) is a visual tool used to summarize these data distributions and identify those outliers.
+ - An outlier is an extreme value that stands out from the rest of the data due to its unusually high or low value. They do not follow the general pattern of the dataset and can be caused by various factors:
+   - Errors: Mistakes in data entry, faulty measuring instruments, or experimental errors.
+   - Natural Variation: Genuine but rare occurrences in a population, such as the height of a professional basketball player in an average adult dataset.
+   - Intentional: introduced deliberately, such as for evaluating fraud detection methods.
+ - Outliers can heavily distort statistical measures like the mean and variance, which often makes their identification critical before further analysis.
+ - A box plot is a standardized graphical representation of the distribution of numerical data based on a five-number summary.
+ - Key Components of a Box Plot:
+   - The Box: Represents the Interquartile Range (IQR), which contains the middle 50% of the data.
+     - Q1 (First Quartile): The 25th percentile; 25% of the data falls below this value.
+     - Q3 (Third Quartile): The 75th percentile; 75% of the data falls below this value.
+   - Median (Q2): A line inside the box representing the middle value of the dataset.
+   - Whiskers: Lines extending from the box that show the range of the data excluding outliers. Standard whiskers typically stretch to 1.5 times the IQR from the quartiles.
+   - Outliers (Fliers): Individual points (dots, stars, or diamonds) plotted beyond the whiskers that represent values significantly higher or lower than the rest of the data.
+ - Using Box Plots to Detect Outliers
+   - Analysts typically use the 1.5 IQR rule to mathematically define outliers for box plots:
+     - Calculate IQR: IQR=Q3-Q1.
+     - Determine Lower Bound: Q1-(1.5 x IQR)
+     - Determine Upper Bound: Q3+(1.5 x IQR)
+     - Identify: Any data point falling outside these bounds is considered a potential outlier. For example, if Q3 is 4.5 and the IQR is 3, the upper limit is \(4.5+(1.5\times 3)=9\). Any value above 9, such as 10, is marked as an outlier.
+4. Plot correlation heatmap to understand feature relationships.
+ - A heatmap visualizes a correlation matrix, which shows the linear relationship between all pairs of numerical features in a dataset.
+ - How to Interpret the Results
+    The values range from -1 to +1:
+    +1.0: Perfect positive correlation. As one feature increases, the other also increases (e.g., house size and price).
+    -1.0: Perfect negative correlation. As one feature increases, the other decreases.
+    0.0: No linear relationship between features.
+    Darker/Brighter Colors: Typically represent stronger relationships (near 1 or -1), while neutral colors represent little to no correlation.
+ - Why This is Useful
+    Feature Selection: Identify which features are strongly related to your target variable.
+    Detect Multicollinearity: If two input features have a very high correlation (e.g., > 0.9), they are redundant. Removing one can improve the performance and stability of machine learning models.
+5. Write insights for each visualization.
+6. Identify features important for prediction.
+7. Summarize findings in bullet points.
+
+## Summary ##
+Summary of Techniques Used
+
+    Histogram (histplot): Shows the frequency of numerical values (e.g., content released per year).
+    Box Plot (boxplot): Summarizes data into quartiles and visually highlights outliers outside the 1.5 * IQR range.
+    Count Plot (countplot): Effectively counts and compares categorical groups like genres or ratings.
+
+## Correct way of doing task is apply task 1 and 2 here and then proceed with task 3 ##
+
+## EDA ##
+An EDA notebook is
+an interactive environment, typically a Jupyter notebook, used for Exploratory Data Analysis (EDA). EDA is the process of examining datasets to discover patterns, detect anomalies, and check assumptions, often with the help of statistical graphics and visualization techniques.
